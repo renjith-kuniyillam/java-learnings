@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            height: 100%;
+            background: darkblue;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: red;
+        }
+        .form-wrapper {
+            padding: 2rem;
+            height: 80%;
+            width: 50%;
+            background-color: azure;
+        }
+        .form-input {
+            height: 2rem;
+            width: 25%;
+        }
+        .input-wrapper {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <form class="form-wrapper" role="form" method="post" th:action="@{register/user}" th:object="${userForm}" >
+    <div class="form-wrapper">
+        <div class="input-wrapper">
+            <label>
+                Name
+            </label>
+            <input th:field="*{name}" class="form-input" type="text"/>
+        </div>
+        <div class="input-wrapper">
+            <label>
+                Email
+            </label>
+            <input th:field="*{email}" class="form-input" type="text"/>
+        </div>
+        <div class="input-wrapper">
+            <label>
+                Address
+            </label>
+            <input th:field="*{address}" class="form-input" type="text"/>
+        </div>
+        <div class="input-wrapper">
+            <label>
+                Married
+            </label>
+            <input id="married-yes" th:field="*{married}" value="yes" type="radio"/>
+            <label for="married-yes">Yes</label>
+
+            <input id="married-no" th:field="*{married}" text="No" value="no" type="radio"/>
+            <label for="married-no">No</label>
+
+        </div>
+        <div class="input-wrapper">
+            <label>
+                Password
+            </label>
+            <input th:field="*{password}" type="password" class="form-input"/>
+        </div>
+        <div class="input-wrapper">
+            <label>Profession</label>
+            <select th:field="*{profession}" class="form-input">
+                <option th:each="p : ${professionList}" th:value="${p}" th:text="${p}" >Student</option>
+            </select>
+
+
+        </div>
+        <div class="input-wrapper">
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+</body>
+</html>

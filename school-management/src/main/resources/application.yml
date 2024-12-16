@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: school_management
+  datasource:
+    url: jdbc:postgresql://localhost:5433/school_mgmt
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database: postgresql
+    properties:
+      hibernate:
+        format_sql: true
